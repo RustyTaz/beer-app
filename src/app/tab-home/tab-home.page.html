@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> All Beers </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-beer-card
+    *ngFor="
+    let beer of beers | paginate : { itemsPerPage: 5, currentPage: currentPage }
+  "
+    [beer]="beer"
+  ></app-beer-card>
+  <div class="pagination">
+    <pagination-controls
+      (pageChange)="currentPage = $event"
+    ></pagination-controls>
+  </div>
+</ion-content>
