@@ -44,8 +44,8 @@ export class BeerPagePage implements OnInit {
 
   ngOnInit() {}
   addToFavorite() {
-    localStorage.setItem("mybeer"+ this.beer[0].id, JSON.stringify(this.beer));
-    this.nativeStorage.setItem("mybeer"+ this.beer[0].id, JSON.stringify(this.beer)).then(
+    localStorage.setItem("mybeer"+ this.beer[0].id, JSON.stringify(this.beer[0].name));
+    this.nativeStorage.setItem("mybeer"+ this.beer[0].id, JSON.stringify(this.beer[0].name)).then(
       () => console.log('Stored item!'),
       (error) => console.error('Error storing item', error)
     );

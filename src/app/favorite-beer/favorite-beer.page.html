@@ -1,13 +1,16 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>favorite-beer</ion-title>
+  <ion-toolbar *ngIf="isListEmpty">
+    <ion-title>No Beer on the List</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">favorite-beer</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" *ngIf="!isListEmpty">
+  <ion-list>
+    <ion-item *ngFor="let beer of favBeers">
+      <ion-label>Beer Name: {{beer.value}}</ion-label>
+      <ion-button shape="round" (click)="deleteFromFavorite(beer.key)"
+        >Delete</ion-button
+      >
+    </ion-item>
+  </ion-list>
 </ion-content>
