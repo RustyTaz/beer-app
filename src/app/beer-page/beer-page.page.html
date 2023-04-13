@@ -23,7 +23,7 @@
       </ion-card-header>
       <ion-card-content> {{ beer[0].description }} </ion-card-content>
       <div class="card-buttons">
-        <ion-button fill="outline"
+        <ion-button fill="outline" (click)="addToFavorite()"
           >Add to Favorite
           <ion-icon slot="end" name="heart"></ion-icon>
         </ion-button>
