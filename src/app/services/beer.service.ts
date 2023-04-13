@@ -13,8 +13,16 @@ export class BeerService {
   getBeerList(): Observable<Beer[]> {
     return this.http.get<Beer[]>('https://api.punkapi.com/v2/beers').pipe(
       tap((beers) => console.log('Beers fetched!')),
-      catchError(this.handleError<Beer[]>('Get Songs', []))
+      catchError(this.handleError<Beer[]>('Get Beers', []))
     );
+  }
+
+   getBeer(id: string): Observable<Beer[]> {
+    return this.http.get<Beer[]>('https://api.punkapi.com/v2/beers/' + id)
+      .pipe(
+        tap(_ => console.log(`Beer fetched id=: ${id}`)),
+        catchError(this.handleError<Beer[]>(`Get Beer id=${id}`))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

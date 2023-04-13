@@ -8,10 +8,12 @@
       <ion-card-title>ABV: {{ beer.abv }}</ion-card-title>
     </ion-card-header>
     <div class="card-buttons">
-      <ion-button fill="outline">See More</ion-button>
-      <ion-button fill="outline">
+      <ion-button fill="outline" [routerLink]="['/beer-page', value]"
+        >See More</ion-button
+      >
+      <!-- <ion-button fill="outline">
         <ion-icon slot="icon-only" name="heart"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </div>
   </div>
 </ion-card>

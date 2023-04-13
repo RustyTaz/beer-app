@@ -1,23 +1,27 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Beer } from '../models/beer';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { BeerPagePage } from '../beer-page/beer-page.page';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-beer-card',
   templateUrl: './beer-card.component.html',
   styleUrls: ['./beer-card.component.scss'],
   standalone: true,
-  imports: [IonicModule, ExploreContainerComponent, HttpClientModule, CommonModule, NgxPaginationModule],
+  imports: [IonicModule, HttpClientModule, CommonModule, NgxPaginationModule, RouterModule],
 })
-export class BeerCardComponent  implements OnInit {
+export class BeerCardComponent {
   @Input() beer: any;
-
+  componentBeerPage = BeerPagePage;
+  value: any;
+  
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.value=this.beer.id;
+  }
 
 }
